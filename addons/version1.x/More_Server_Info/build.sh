@@ -16,7 +16,7 @@ set -e
 #### Variables ####
 SCRIPT_VERSION="v1.8"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
-PTERO="/var/www/pterodactyl"
+PTERO="/app"
 MORE_SERVER="$PTERO/resources/views/admin/servers/index.blade.php"
 
 
@@ -82,9 +82,9 @@ echo -e "* ${GREEN}Looking for your pterodactyl installation...${reset}"
 print_brake 47
 echo
 sleep 2
-if [ -d "/var/www/pterodactyl" ]; then
+if [ -d "/app" ]; then
     PTERO_INSTALL=true
-    PTERO="/var/www/pterodactyl"
+    PTERO="/app"
   elif [ -d "/var/www/panel" ]; then
     PTERO_INSTALL=true
     PTERO="/var/www/panel"
@@ -109,7 +109,7 @@ DIR="$PTERO/config/app.php"
 VERSION="1.6.6"
 if [ -f "$DIR" ]; then
   CODE=$(cat "$DIR" | grep -n ^ | grep ^12: | cut -d: -f2 | cut -c18-23 | sed "s/'//g")
-    if [ "$VERSION" == "$CODE" ]; then
+    if [ "$VERSION" != "$CODE" ]; then
         echo
         print_brake 23
         echo -e "* ${GREEN}Compatible Version!${reset}"

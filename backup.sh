@@ -16,7 +16,7 @@ set -e
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
 
 #### ADDONS FILES ####
-PTERO="/var/www/pterodactyl"
+PTERO="/app"
 MORE_BUTTONS="${PTERO}/resources/scripts/components/server/MoreButtons.tsx"
 PMA_ARCH="${PTERO}/resources/scripts/routers/ServerRouter.tsx"
 PMA_FILES="${PTERO}/public/pma"
@@ -58,9 +58,9 @@ echo -e "* ${GREEN}Looking for your pterodactyl installation...${reset}"
 print_brake 47
 echo
 sleep 2
-if [ -d "/var/www/pterodactyl" ]; then
+if [ -d "/app" ]; then
     PTERO_INSTALL=true
-    PTERO="/var/www/pterodactyl"
+    PTERO="/app"
   elif [ -d "/var/www/panel" ]; then
     PTERO_INSTALL=true
     PTERO="/var/www/panel"

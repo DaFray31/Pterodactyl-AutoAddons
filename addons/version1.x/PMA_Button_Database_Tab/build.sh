@@ -16,7 +16,7 @@ set -e
 #### Variables ####
 SCRIPT_VERSION="v1.8"
 SUPPORT_LINK="https://discord.gg/buDBbSGJmQ"
-PTERO="/var/www/pterodactyl"
+PTERO="/app"
 PMA_VERSION="5.1.1"
 PMA_ARCH="$PTERO/public/pma_redirect.html"
 PMA_NAME="phpmyadmin"
@@ -91,9 +91,9 @@ echo -e "* ${GREEN}Looking for your pterodactyl installation...${reset}"
 print_brake 47
 echo
 sleep 2
-if [ -d "/var/www/pterodactyl" ]; then
+if [ -d "/app" ]; then
     PTERO_INSTALL=true
-    PTERO="/var/www/pterodactyl"
+    PTERO="/app"
   elif [ -d "/var/www/panel" ]; then
     PTERO_INSTALL=true
     PTERO="/var/www/panel"
